@@ -1,0 +1,29 @@
+@import 'assets/styles/common'
+
+.header
+  display: flex
+  background-color: $main-bg-color-dark
+  height: 100px
+  padding: 0 30px
+  box-shadow: $box-shadow-normal
+
+  +max-w($tablet)
+    height: 70px
+    padding-left: 15px
+    padding-right: 0
+
+.header__logo
+  margin-left: auto
+
+.header__nav
+  display: flex
+  align-items: stretch
+
+  +max-w($tablet)
+    display: none
+
+.header__burger
+  display: none
+
+  +max-w($tablet)
+    display: block

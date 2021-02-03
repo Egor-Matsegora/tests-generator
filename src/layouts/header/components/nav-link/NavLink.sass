@@ -1,0 +1,23 @@
+@import 'assets/styles/common'
+
+.nav-link
+  min-height: 70px
+  border-bottom: 2px solid transparent
+  min-width: 100px
+  transition: $simple-transition
+  font-weight: 400
+
+  &:hover
+    background-color: $hover-bg-color-dark
+    border-bottom-color: transparentize($main-text-color-light, 0.3)
+
+.nav-link__link
+  display: block
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  color: $main-text-color-light
+  text-decoration: none
+  padding: 0 10px
