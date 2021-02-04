@@ -6,7 +6,7 @@ const NavLink = (props) => {
 
   return (
     <div className="nav-link">
-      <a href="#" className="nav-link__link">{ link.title }</a>
+      <a href={ link.url } className="nav-link__link">{ link.title }</a>
     </div>
   )
 }

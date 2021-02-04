@@ -12,32 +12,32 @@ export class Header extends React.Component {
     // },
     {
       title: 'Все тесты',
-      url: '',
+      url: '/',
       protect: 'none'
     },
     {
       title: 'Вход',
-      url: '',
+      url: '/',
       protect: 'home'
     },
     {
       title: 'Регистрация',
-      url: '',
+      url: '/',
       protect: 'home'
     },
     {
       title: 'Создать тест',
-      url: '',
+      url: '/',
       protect: 'login'
     },
     {
       title: 'Мои тесты',
-      url: '',
+      url: '/',
       protect: 'login'
     },
     {
       title: 'Профиль',
-      url: '',
+      url: '/',
       protect: 'login'
     }
   ]
