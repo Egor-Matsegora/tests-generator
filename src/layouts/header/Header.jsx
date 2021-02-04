@@ -1,50 +1,13 @@
 import React from 'react';
-import NavLink from './components/nav-link/NavLink';
+import NavLink from './components/nav-link/HeaderNavLink';
 import Burger from './components/burger/Burger';
 import './Header.sass';
 
 export class Header extends React.Component {
-  links = [
-    // {
-    //   title: 'Главная',
-    //   url: '',
-    //   protect: 'none'
-    // },
-    {
-      title: 'Все тесты',
-      url: '/',
-      protect: 'none'
-    },
-    {
-      title: 'Вход',
-      url: '/',
-      protect: 'home'
-    },
-    {
-      title: 'Регистрация',
-      url: '/',
-      protect: 'home'
-    },
-    {
-      title: 'Создать тест',
-      url: '/',
-      protect: 'login'
-    },
-    {
-      title: 'Мои тесты',
-      url: '/',
-      protect: 'login'
-    },
-    {
-      title: 'Профиль',
-      url: '/',
-      protect: 'login'
-    }
-  ]
 
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
@@ -54,13 +17,13 @@ export class Header extends React.Component {
         </div>
 
         <nav className="header__nav">
-          { this.links.map((link, index) => (
+          { this.props.links.map((link, index) => (
             <NavLink link={link} key={ `${index}` } />
           )) }
         </nav>
 
         <div className="header__burger">
-          <Burger links={ this.links } />
+          <Burger links={ this.props.links } />
         </div>
       </div>
     )

@@ -21,6 +21,10 @@ export default class Burger extends React.Component {
       : (document.body.style.overflowY = 'visible');
   }
 
+  preventClick(e) {
+    e.stopPropagation()
+  }
+
   closeMenuOnResize() {
     window.innerWidth >= 991 && this.setState({isMenuOpen: false})
   }
@@ -56,7 +60,9 @@ export default class Burger extends React.Component {
           onClick={ this.toggleMenuState }
         >
           <div
-            className="burger__menu" >
+            className="burger__menu"
+            onClick={ this.preventClick }
+          >
             <ul className="burger__links-list">
               { this.props.links.map((link, index) => (
                 <li className="burger__link-item" key={ `${index}` }>
