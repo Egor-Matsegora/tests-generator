@@ -56,7 +56,7 @@ class App extends React.Component {
           url: 'profile',
           protect: 'login',
         }
-    ]
+      ]
     }
   }
 

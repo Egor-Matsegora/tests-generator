@@ -1,0 +1,28 @@
+@import 'assets/styles/common'
+
+.nav-link
+  min-height: 70px
+  min-width: 100px
+  font-weight: 400
+
+.nav-link__link
+  display: block
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  color: $main-text-color-light
+  border-bottom: 2px solid transparent
+  text-decoration: none
+  padding: 0 10px
+  transition: $simple-transition
+
+  &:hover
+    background-color: $hover-bg-color-dark
+    border-bottom-color: transparentize($main-text-color-light, 0.3)
+    box-shadow: $box-shadow-active-inset
+
+.nav-link__link--active
+  background-color: $hover-bg-color-dark
+  border-bottom-color: transparentize($main-text-color-light, 0.3)

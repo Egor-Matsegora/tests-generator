@@ -7,7 +7,12 @@ const HeaderNavLink = (props) => {
 
   return (
     <div className="nav-link">
-      <NavLink to={ link.url } className="nav-link__link" activeClassName="nav-link__link--active">{ link.title }</NavLink>
+      <NavLink
+        to={ link.url }
+        className="nav-link__link"
+        activeClassName="nav-link__link--active"
+        exact
+      >{ link.title }</NavLink>
     </div>
   )
 }

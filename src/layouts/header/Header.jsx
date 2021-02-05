@@ -1,5 +1,5 @@
 import React from 'react';
-import NavLink from './components/nav-link/HeaderNavLink';
+import NavLink from './components/header-nav-link/HeaderNavLink';
 import Burger from './components/burger/Burger';
 import './Header.sass';
 
