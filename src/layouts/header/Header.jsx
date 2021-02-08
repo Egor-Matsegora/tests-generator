@@ -1,5 +1,5 @@
 import React from 'react';
-import NavLink from './components/header-nav-link/HeaderNavLink';
+import HeaderNavLink from './components/header-nav-link/HeaderNavLink';
 import Burger from './components/burger/Burger';
 import './Header.sass';
 
@@ -17,8 +17,8 @@ export class Header extends React.Component {
         </div>
 
         <nav className="header__nav">
-          { this.props.links.map((link, index) => (
-            <NavLink link={link} key={ `${index}` } />
+          { this.props.links.reverse().map((link, index) => (
+            <HeaderNavLink link={link} key={ `${index}` } />
           )) }
         </nav>
 

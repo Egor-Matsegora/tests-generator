@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Burger.sass';
 
 export default class Burger extends React.Component {
@@ -66,9 +67,14 @@ export default class Burger extends React.Component {
             <ul className="burger__links-list">
               { this.props.links.map((link, index) => (
                 <li className="burger__link-item" key={ `${index}` }>
-                  <a href={ link.url } className="burger__link">
+                  <NavLink
+                    to={ link.path }
+                    className="burger__link"
+                    activeClassName="burger__link--active"
+                    exact={ link.path === '' }
+                  >
                     { link.title }
-                  </a>
+                  </NavLink>
                 </li>
               )) }
             </ul>

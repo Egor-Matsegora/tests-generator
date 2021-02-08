@@ -78,21 +78,20 @@
   border-bottom: 1px solid transparentize($accent-text-color-dark, 0.8)
   border-top: 1px solid transparentize($accent-text-color-dark, 0.8)
   margin-top: -1px
+
+.burger__link
+  display: block
   padding: 0 20px
+  height: 100%
+  color: $main-text-color-dark
+  text-decoration: none
+  font-weight: 400
   transition: $simple-transition
 
   &:hover
     background-color: #adb5bd
     box-shadow: $box-shadow-active-inset
 
-.burger__link-item--active
+.burger__link--active
   background-color: #adb5bd
   text-decoration: underline
-
-.burger__link
-  display: block
-  height: 100%
-  color: $main-text-color-dark
-  text-decoration: none
-  font-weight: 400
-
