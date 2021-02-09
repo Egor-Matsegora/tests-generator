@@ -16,18 +16,18 @@ const TextInput =  ({
     isResized,
     isDisabled,
     isStrached,
-    updateOn
+    updateOn,
+    errors
   }) =>  {
 
-  const [inputValue, setInputValue] = useState(value)
+  const [inputValue, setInputValue] = useState(value);
+  const [inputId] = useState(uuid());
 
   const valueChangeHandler = (event) => {
     event.type === 'change' && setInputValue(event.target.value);
     event.type === 'blur' && setInputValue(event.target.value.trim());
     event.type === updateOn && inputValue.trim() && onChangeHandler(event);
   }
-
-  const inputId = uuid();
 
   return (
     <div className={ isStrached ? 'input-field input-field--streched' : 'input-field'}>
@@ -41,7 +41,7 @@ const TextInput =  ({
             maxLength={ maxLength }
             required={ isRequired }
             disabled={ isDisabled }
-            className="input-field__field input-field__field--text"
+            className={ `input-field__field input-field__field--text ${ !!errors.length && 'input-field__field--error' }` }
             onChange={ valueChangeHandler }
             onBlur={ valueChangeHandler }
           />
@@ -53,7 +53,7 @@ const TextInput =  ({
           <textarea
             id={ `input-${inputId}` }
             value={ inputValue }
-            className="input-field__field input-field__field--textarea"
+            className={ `input-field__field input-field__field--textarea ${ !!errors.length && 'input-field__field--error' }` }
             minLength={ minLength }
             maxLength={ maxLength }
             rows={ rows }
@@ -70,11 +70,19 @@ const TextInput =  ({
         (
           <label
             htmlFor={ `input-${inputId}` }
-            className={ `input-field__label ${ value.trim() ? 'input-field__label--active' : '' }` }
+            className={ `input-field__label ${ inputValue.trim() ? 'input-field__label--active' : '' }` }
           >
             { labelText }
           </label>
         )
+      }
+
+      {
+        errors.map((err, index) => (
+          <div className="input-field__error" key={ `${index}` }>
+            { err }
+          </div>
+        ))
       }
     </div>
   );
@@ -86,10 +94,11 @@ TextInput.propTypes = {
   onChangeHandler: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['text', 'textarea']),
   updateOn: PropTypes.oneOf(['change', 'blur']),
+  errors: PropTypes.arrayOf(PropTypes.string),
   minLength: PropTypes.number,
   maxLength: PropTypes.number,
-  isRequired: PropTypes.bool,
   rows: PropTypes.number,
+  isRequired: PropTypes.bool,
   isResized: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isStrached: PropTypes.bool
@@ -99,6 +108,7 @@ TextInput.defaultProps = {
   type: 'text',
   value: '',
   updateOn: 'change',
+  errors: [],
   minLength: 0,
   maxLength: null,
   rows: 3,
