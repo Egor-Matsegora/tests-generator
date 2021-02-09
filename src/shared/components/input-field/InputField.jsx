@@ -5,7 +5,7 @@ import './InputField.sass';
 
 const TextInput =  ({
     labelText,
-    onChange,
+    onChangeHandler,
     value,
     type,
     isRequired,
@@ -13,13 +13,16 @@ const TextInput =  ({
     maxLength,
     rows,
     isResized,
-    isDisabled
+    isDisabled,
+    isStrached
   }) =>  {
+
+  
 
   const inputId = uuid();
 
   return (
-    <div className="input">
+    <div className={ isStrached ? 'input-field input-field--streched' : 'input-field'}>
       {
         type === 'text' && (
           <input
@@ -30,8 +33,8 @@ const TextInput =  ({
             maxLength={ maxLength }
             required={ isRequired }
             disabled={ isDisabled }
-            className="input__field input__field--text"
-            onChange={ onChange }
+            className="input-field__field input-field__field--text"
+            onChange={ onChangeHandler }
           />
         )
       }
@@ -41,14 +44,14 @@ const TextInput =  ({
           <textarea
             id={ `input-${inputId}` }
             value={ value || '' }
-            className="input__field input__field--textarea"
+            className="input-field__field input-field__field--textarea"
             minLength={ minLength }
             maxLength={ maxLength }
             rows={ rows }
             required={ isRequired }
             disabled={ isDisabled }
-            onChange={ onChange }
-            style={{ resize: isResized ? 'initial' : 'none' }}
+            onChange={ onChangeHandler }
+            style={{ resize: isResized ? 'both' : 'none' }}
           ></textarea>
         )
       }
@@ -57,7 +60,7 @@ const TextInput =  ({
         (
           <label
             htmlFor={ `input-${inputId}` }
-            className="input__label"
+            className={ `input-field__label ${ value.trim() ? 'input-field__label--active' : '' }` }
           >
             { labelText }
           </label>
@@ -70,14 +73,15 @@ const TextInput =  ({
 TextInput.propTypes = {
   labelText: PropTypes.string,
   value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChangeHandler: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['text', 'textarea']),
   minLength: PropTypes.number,
   maxLength: PropTypes.number,
   isRequired: PropTypes.bool,
   rows: PropTypes.number,
   isResized: PropTypes.bool,
-  isDisabled: PropTypes.bool
+  isDisabled: PropTypes.bool,
+  isStrached: PropTypes.bool
 }
 
 TextInput.defaultProps = {
@@ -88,7 +92,8 @@ TextInput.defaultProps = {
   rows: 3,
   isRequired: false,
   isResized: false,
-  isDisabled: false
+  isDisabled: false,
+  isStrached: false
 }
 
 export default TextInput;

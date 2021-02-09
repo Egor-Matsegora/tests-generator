@@ -1,5 +1,5 @@
 import React from 'react';
-import TextInput from 'shared/components/input-field/InputField';
+import InputField from 'shared/components/input-field/InputField';
 import './AnswerFormGroup.sass';
 
 export default class AnswerFormgroup extends React.Component {
@@ -7,7 +7,7 @@ export default class AnswerFormgroup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'test value',
+      value: '',
       labelText: 'test text',
     };
   }
@@ -20,11 +20,10 @@ export default class AnswerFormgroup extends React.Component {
     return (
       <div className="answer-create">
         <div className="answer-create__form-group">
-          <TextInput
+          <InputField
             labelText={ 'test text' }
             value={ this.state.value }
-            onChange={ this.changeHandler }
-            type={ 'text' }
+            onChangeHandler={ this.changeHandler }
           />
         </div>
         <div className="answer-create__form-group">

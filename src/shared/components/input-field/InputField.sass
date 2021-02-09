@@ -1,0 +1,58 @@
+@import 'assets/styles/common'
+
+.input-field
+  position: relative
+  width: 300px
+
+.input-field--streched
+  width: 100%
+
+.input-field__field
+  display: block
+  width: 100%
+  padding: 15px 15px 0
+  border: 2px solid transparent
+  border-radius: 4px
+  background-color: transparentize($main-bg-color-light, 0.8)
+  color: transparentize($main-text-color-dark, 0.2)
+  font-size: 18px
+  vertical-align: bottom
+  outline: none
+  transition: $simple-transition
+
+  &:hover
+    box-shadow: $box-shadow-hover
+
+  &:focus
+    background-color: transparentize($main-bg-color-light, 0.9)
+    border-color: transparentize($main-bg-color-light, 0.2)
+    box-shadow: $box-shadow-active
+
+.input-field__field--text
+  height: 50px
+  line-height: 31px
+
+.input-field__field--textarea
+  line-height: 1.3em
+  min-height: 90px
+
+.input-field__label
+  position: absolute
+  top: 23px
+  left: 17px
+  line-height: 1em
+  font-size: 18px
+  margin-top: -9px
+  opacity: 0.6
+  transition: $simple-transition
+  max-width: 200px
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+
+.input-field__label--active,
+.input-field__field:focus + .input-field__label
+  top: 4px
+  margin-top: 0
+  font-size: 13px
+  opacity: 1
