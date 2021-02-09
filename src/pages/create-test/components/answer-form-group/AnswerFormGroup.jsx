@@ -1,5 +1,6 @@
 import React from 'react';
 import InputField from 'shared/components/input-field/InputField';
+import CustomRadio from 'shared/components/custom-radio/CustomRadio';
 import './AnswerFormGroup.sass';
 
 export default class AnswerFormgroup extends React.Component {
@@ -16,6 +17,8 @@ export default class AnswerFormgroup extends React.Component {
     this.setState({ value: event.target.value });
   }
 
+  radioHandler() { console.log('radio') }
+
   render() {
     return (
       <div className="answer-create">
@@ -27,11 +30,11 @@ export default class AnswerFormgroup extends React.Component {
           />
         </div>
         <div className="answer-create__form-group">
-          <label htmlFor={ `answer-correct-${this.props.index}-${this.props.questionIndex}` }></label>
-          <input
-            type="radio"
-            id={ `answer-correct-${this.props.index}-${this.props.questionIndex}` }
-            className="create__input input input--radio"
+          <CustomRadio
+            name="name"
+            value={ this.props.index }
+            onChangehandler={ this.radioHandler }
+            labelText="some beautiful text"
           />
         </div>
       </div>
