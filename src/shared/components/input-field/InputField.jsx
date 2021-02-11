@@ -8,6 +8,7 @@ const TextInput =  ({
     labelText,
     onChangeHandler,
     value,
+    name,
     type,
     isRequired,
     minLength,
@@ -36,6 +37,7 @@ const TextInput =  ({
           <input
             type="text"
             id={ `input-${inputId}` }
+            name={ name }
             value={ inputValue }
             minLength={ minLength }
             maxLength={ maxLength }
@@ -52,6 +54,7 @@ const TextInput =  ({
         type === 'textarea' && (
           <textarea
             id={ `input-${inputId}` }
+            name={ name }
             value={ inputValue }
             className={ `input-field__field input-field__field--textarea ${ !!errors.length && 'input-field__field--error' }` }
             minLength={ minLength }
@@ -91,6 +94,7 @@ const TextInput =  ({
 TextInput.propTypes = {
   labelText: PropTypes.string,
   value: PropTypes.string,
+  name: PropTypes.string.isRequired,
   onChangeHandler: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['text', 'textarea']),
   updateOn: PropTypes.oneOf(['change', 'blur']),

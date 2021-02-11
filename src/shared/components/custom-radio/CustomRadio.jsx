@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
 import './CustomRadio.sass';
@@ -28,7 +28,7 @@ const CustomRadio = ({
   );
 }
 
-CustomRadio.PropTypes = {
+CustomRadio.propTypes = {
   labelText: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
