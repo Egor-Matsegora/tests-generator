@@ -6,7 +6,6 @@ import './AnswerFormGroup.sass';
 export default class AnswerFormgroup extends React.Component {
 
   constructor(props) {
-    console.log(props)
     super(props);
     this.state = {
       value: '',
@@ -23,20 +22,21 @@ export default class AnswerFormgroup extends React.Component {
   render() {
     return (
       <div className="answer-create">
-        <div className="answer-create__form-group">
+        <div className="answer-create__form-group answer-create__form-group--text">
           <InputField
-            labelText={ 'test text' }
+            labelText={ 'Введите текст ответа' }
             value={ this.state.value }
             onChangeHandler={ this.changeHandler }
             name={ 'name' }
+            isStreched={ true }
           />
         </div>
-        <div className="answer-create__form-group">
+        <div className="answer-create__form-group answer-create__form-group--radio">
           <CustomRadio
             name="name"
             value={ `${ this.props.index }` }
             onChangeHandler={ this.radioHandler }
-            labelText="some beautiful text"
+            labelText="Правильный ответ"
           />
         </div>
       </div>

@@ -71,7 +71,7 @@ export default class Burger extends React.Component {
                     to={ link.path }
                     className="burger__link"
                     activeClassName="burger__link--active"
-                    exact={ link.path === '' }
+                    exact={ link.path === '/' }
                   >
                     { link.title }
                   </NavLink>

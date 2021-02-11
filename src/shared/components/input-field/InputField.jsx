@@ -16,7 +16,7 @@ const TextInput =  ({
     rows,
     isResized,
     isDisabled,
-    isStrached,
+    isStreched,
     updateOn,
     errors
   }) =>  {
@@ -31,7 +31,7 @@ const TextInput =  ({
   }
 
   return (
-    <div className={ isStrached ? 'input-field input-field--streched' : 'input-field'}>
+    <div className={ `input-field ${ isStreched ?  'input-field--streched' : '' }` }>
       {
         type === 'text' && (
           <input
@@ -105,7 +105,7 @@ TextInput.propTypes = {
   isRequired: PropTypes.bool,
   isResized: PropTypes.bool,
   isDisabled: PropTypes.bool,
-  isStrached: PropTypes.bool
+  isStreched: PropTypes.bool
 }
 
 TextInput.defaultProps = {
@@ -119,7 +119,7 @@ TextInput.defaultProps = {
   isRequired: false,
   isResized: false,
   isDisabled: false,
-  isStrached: false
+  isStreched: false
 }
 
 export default TextInput;
