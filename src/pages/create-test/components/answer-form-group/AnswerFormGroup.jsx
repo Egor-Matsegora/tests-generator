@@ -37,6 +37,7 @@ export default class AnswerFormgroup extends React.Component {
             value={ `${ this.props.index }` }
             onChangeHandler={ this.radioHandler }
             labelText="Правильный ответ"
+            isChecked={ this.props.index === 0 }
           />
         </div>
       </div>

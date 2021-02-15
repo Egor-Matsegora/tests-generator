@@ -1,11 +1,16 @@
 @import './assets/styles'
 
-html
+*
+  outline: none
+  box-sizing: border-box
+  max-width: 100vw
+
+html body
   font-family: $main-font
   font-weight: 300
   font-size: 18px
   line-height: 1.3
-  overflow: hidden
+  overflow-x: hidden
 
   +max-w($tablet)
     font-size: 16px

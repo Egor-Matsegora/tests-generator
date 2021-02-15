@@ -7,7 +7,8 @@ const CustomRadio = ({
   labelText,
   name,
   value,
-  onChangeHandler
+  onChangeHandler,
+  isChecked
 }) => {
   const [ inputId ] = useState(uuid());
 
@@ -20,6 +21,7 @@ const CustomRadio = ({
         name={ name }
         value={ value }
         onChange={ onChangeHandler }
+        checked={ isChecked }
       />
       <label htmlFor={ inputId } className="custom-radio__label">
         { labelText }
@@ -32,7 +34,8 @@ CustomRadio.propTypes = {
   labelText: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  onChangeHandler: PropTypes.func.isRequired
+  onChangeHandler: PropTypes.func.isRequired,
+  isChecked: PropTypes.bool
 }
 
 export default CustomRadio;
