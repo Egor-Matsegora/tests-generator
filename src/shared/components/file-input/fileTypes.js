@@ -1,0 +1,25 @@
+const fileTypes = [
+  'image/apng',
+  'image/avif',
+  'image/gif',
+  'image/jpeg',
+  'image/png',
+  'image/svg+xml',
+  'image/svg+webp',
+  'image/svg+webp',
+  'audio/wave',
+  'audio/x-wav',
+  'audio/x-pn-wav',
+  'audio/webm',
+  'audio/ogg',
+  'audio/mpeg',
+  'video/mpeg',
+  'video/webm',
+  'video/ogg',
+  'video/x-msvideo',
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+];
+
+export default fileTypes;
