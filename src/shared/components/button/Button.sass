@@ -1,0 +1,82 @@
+@import 'assets/styles/common'
+
+.app-button
+  display: inline-block
+  border: 0
+  outline: 0
+  text-transform: uppercase
+  text-align: center
+  cursor: pointer
+  white-space: nowrap
+  text-overflow: ellipsis
+  text-decoration: none
+  color: $main-text-color-dark
+  box-shadow: $box-shadow-normal
+  transition: $simple-transition
+
+  &:hover
+    box-shadow: $box-shadow-hover
+
+  &:active
+    box-shadow: $box-shadow-active
+
+  &:disabled
+    opacity: 0.8
+    cursor: not-allowed
+
+.app-button--medium
+  height: 45px
+  line-height: 45px
+  padding: 0 20px
+  font-size: 14px
+  min-width: 150px
+  max-width: 300px
+  border-radius: $border-radius-medium
+
+.app-button--small
+  height: 40px
+  line-height: 40px
+  padding: 0 15px
+  font-size: 12px
+  min-width: 120px
+  max-width: 250px
+  border-radius: $border-radius-small
+
+.app-button--large
+  height: 50px
+  line-height: 50px
+  padding: 0 30px
+  font-size: 16px
+  min-width: 180px
+  max-width: 300px
+  border-radius: $border-radius-large
+
+.app-button--stretched
+  width: 100%
+
+.app-button--default
+  background-color: $main-bg-color-light
+
+  &:hover
+    background-color: $hover-bg-color-light
+
+.app-button--primary
+  background-color: $accent-bg-color-dark
+  color: $main-text-color-light
+
+  &:hover
+    background-color: lighten($accent-bg-color-dark, 10)
+
+.app-button--danger
+  background-color: $error-color
+  color: $main-text-color-light
+
+  &:hover
+    background-color: darken($error-color, 10)
+
+.app-button--info
+  background-color: $info-color
+  color: $main-text-color-dark
+
+  &:hover
+    background-color: darken($info-color, 10)

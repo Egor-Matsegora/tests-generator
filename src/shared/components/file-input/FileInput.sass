@@ -26,6 +26,13 @@
   border-radius: $border-radius-medium
   border: 3px dashed $main-bg-color-light
   position: relative
+  transition: $simple-transition
+
+  &:hover
+    box-shadow: $box-shadow-hover
+
+  &:active
+    box-shadow: $box-shadow-active
 
   &::before
     display: none
