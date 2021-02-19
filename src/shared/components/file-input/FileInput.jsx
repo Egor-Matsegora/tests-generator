@@ -8,7 +8,7 @@ import fileTypes from './fileTypes';
 const FileInput = ({
   labelText,
   filePath,
-  onChangeHandler,
+  onChange,
   errors,
   isRequired,
   isDisabled,
@@ -20,7 +20,7 @@ const FileInput = ({
   const [inputFile, setInputFile] = useState(filePath);
   const [inputErrors, setInputErrors] = useState([]);
 
-  const onChange = (event) => {
+  const onChangeHandler = (event) => {
     const file = event.target.files[0];
     const resultFileUrl = file ? URL.createObjectURL(file) : null;
 
@@ -29,7 +29,7 @@ const FileInput = ({
     setInputFile(resultFileUrl);
     processInputErrors(file);
 
-    onChangeHandler(event);
+    onChange(event);
   }
 
   const inputRef = useRef(null);
@@ -84,7 +84,7 @@ const FileInput = ({
           id={ inputId }
           className="file-input__input"
           required={ isRequired }
-          onChange={ onChange }
+          onChange={ onChangeHandler }
           ref={ inputRef }
           disabled={ isDisabled }
         />
@@ -100,7 +100,7 @@ const FileInput = ({
 
 FileInput.propTypes = {
   labelText: PropTypes.string,
-  onChangeHandler: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   filePath: PropTypes.string,
   errors: PropTypes.arrayOf(PropTypes.string),
   isRequired: PropTypes.bool,

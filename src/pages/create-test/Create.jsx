@@ -1,6 +1,7 @@
 import React from 'react';
 import QuestionFormGroup from './components/question-form-group/QuestionFormGroup';
 import TestFormGroup from './components/test-form-group/TestFormGroup';
+import Button from 'shared/components/button/Button';
 import initialTestState from './fixtures';
 
 export default class Create extends React.Component {
@@ -26,9 +27,7 @@ export default class Create extends React.Component {
             ))
           }
 
-          <button type="button" className="create__add-question btn btn--secondary">
-            Добавить Вопрос
-          </button>
+        <Button> Добавить вопрос </Button>
 
         </form>
       </div>

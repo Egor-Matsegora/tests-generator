@@ -1,32 +1,36 @@
 import React from 'react';
 import './TestFormGroup.sass';
+import FileInput from 'shared/components/file-input/FileInput';
+import InputField from 'shared/components/input-field/InputField';
 
 export default () => {
 
+  const changeHandler = (event) => console.log(event)
+
   return (
     <>
-      <div className="create__form-group">
-        <label htmlFor="test-title"></label>
-        <input
-          type="text"
-          id="test-title"
-          className="create__input input input__text"
+      <div className="create-test__form-group">
+        <InputField
+          name="test tytle"
+          labelText="Название теста"
+          onChange={ changeHandler }
+          isStreched={ true }
+          isRequiered={ true }
         />
       </div>
-      <div className="create__form-group">
-        <label htmlFor="test-description"></label>
-        <textarea
-          type="text"
-          id="test-description"
-          className="create__input input input__textarea"
-        ></textarea>
+      <div className="create-test__form-group">
+        <InputField
+          name="test descrition"
+          labelText="Описание теста"
+          onChange={ changeHandler }
+          type="textarea"
+          isStreched={ true }
+        />
       </div>
-      <div className="create__form-group">
-        <label htmlFor="test-image"></label>
-        <input
-          type="file"
-          id="test-image"
-          className="create__input input input__image"
+      <div className="create-test__form-group">
+        <FileInput
+          onChange={ changeHandler }
+          labelText={ 'Изображение для заголовка теста' }
         />
       </div>
     </>

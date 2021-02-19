@@ -6,7 +6,7 @@ import './InputField.sass';
 
 const TextInput =  ({
     labelText,
-    onChangeHandler,
+    onChange,
     value,
     name,
     type,
@@ -27,7 +27,7 @@ const TextInput =  ({
   const valueChangeHandler = (event) => {
     event.type === 'change' && setInputValue(event.target.value);
     event.type === 'blur' && setInputValue(event.target.value.trim());
-    event.type === updateOn && inputValue.trim() && onChangeHandler(event);
+    event.type === updateOn && inputValue.trim() && onChange(event);
   }
 
   return (
@@ -95,7 +95,7 @@ TextInput.propTypes = {
   labelText: PropTypes.string,
   value: PropTypes.string,
   name: PropTypes.string.isRequired,
-  onChangeHandler: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['text', 'textarea']),
   updateOn: PropTypes.oneOf(['change', 'blur']),
   errors: PropTypes.arrayOf(PropTypes.string),

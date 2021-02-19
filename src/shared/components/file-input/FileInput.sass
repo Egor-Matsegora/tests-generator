@@ -4,12 +4,18 @@
   display: flex
   flex-wrap: wrap
 
+  +max-w($tablet)
+    flex-direction: column
+
 .file-input__label
   margin-right: 25px
-  white-space: nowrap
   cursor: pointer
-  max-width: 275px
   align-self: flex-start
+  width: 200px
+  margin-bottom: 10px
+
+  +max-w($tablet)
+    width: 100%
 
 .file-input__box
   flex-grow: 1

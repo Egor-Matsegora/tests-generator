@@ -24,7 +24,7 @@ export default class QuestionFormGroup extends React.Component {
           <InputField
             value={ this.state.question.title }
             name={ `question-${this.props.index}-title` }
-            onChangeHandler={ this.changeHandler }
+            onChange={ this.changeHandler }
             isStreched={ true }
             isRequired={ true }
             labelText="Формулировка вопроса"
@@ -34,21 +34,16 @@ export default class QuestionFormGroup extends React.Component {
           <InputField
             value={ this.state.question.title }
             name={ `question-${this.props.index}-description` }
-            onChangeHandler={ this.changeHandler }
+            onChange={ this.changeHandler }
             isStreched={ true }
             labelText="Описание вопроса"
             type="textarea"
           />
         </div>
         <div className="create-question__form-group">
-          <FileInput onChangeHandler={ this.changeHandler } errors={ ['some error', 'some error'] } />
-        </div>
-        <div className="create__form-group">
-          <label htmlFor={`question-time${this.props.index}`}></label>
-          <input
-            type="number"
-            id={`question-time${this.props.index}`}
-            className="create__input input input--number"
+          <FileInput
+            labelText="Изображение вопроса"
+            onChange={ this.changeHandler }
           />
         </div>
         <h2 className="create__form-text">Варианты ответов:</h2>

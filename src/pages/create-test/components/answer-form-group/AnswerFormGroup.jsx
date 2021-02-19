@@ -26,7 +26,7 @@ export default class AnswerFormgroup extends React.Component {
           <InputField
             labelText={ 'Введите текст ответа' }
             value={ this.state.value }
-            onChangeHandler={ this.changeHandler }
+            onChange={ this.changeHandler }
             name={ 'name' }
             isStreched={ true }
           />
@@ -35,9 +35,8 @@ export default class AnswerFormgroup extends React.Component {
           <CustomRadio
             name="name"
             value={ `${ this.props.index }` }
-            onChangeHandler={ this.radioHandler }
+            onChange={ this.radioHandler }
             labelText="Правильный ответ"
-            isChecked={ this.props.index === 0 }
           />
         </div>
       </div>
