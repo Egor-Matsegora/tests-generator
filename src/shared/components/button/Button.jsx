@@ -12,7 +12,8 @@ const Button = (props) => {
     children,
     size,
     isStretched,
-    path
+    path,
+    onClick
   } = props;
 
   return (
@@ -27,6 +28,7 @@ const Button = (props) => {
         } ${
           isStretched ? 'app-button--stretched' : ''
         }`}
+        onClick={ onClick }
       > { text || children } </button>) :
       (<Link
         to={ path }
@@ -38,6 +40,7 @@ const Button = (props) => {
           isStretched ? 'app-button--stretched' : ''
         }`}
         exact='true'
+        onClick={ onClick }
       >{ text || children }</Link>)
   );
 }
@@ -51,7 +54,8 @@ Button.propTypes = {
   isDisabled: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   isStretched: PropTypes.bool,
-  path: PropTypes.string
+  path: PropTypes.string,
+  onClick: PropTypes.func
 }
 
 Button.defaultProps = {

@@ -1,7 +1,9 @@
 import React from 'react';
+import { SlideDown } from 'react-slidedown';
 import AnswerFormGroup from '../answer-form-group/AnswerFormGroup';
 import InputField from 'shared/components/input-field/InputField';
 import FileInput from 'shared/components/file-input/FileInput';
+import Button from 'shared/components/button/Button';
 import './QuestionFormGroup.sass';
 
 export default class QuestionFormGroup extends React.Component {
@@ -9,7 +11,8 @@ export default class QuestionFormGroup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      question: props.question
+      question: props.question,
+      isOpen: true
     }
   }
 
@@ -17,9 +20,15 @@ export default class QuestionFormGroup extends React.Component {
     console.log(event);
   }
 
+  changeOpenState = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  }
+
   render() {
-    return (
-      <div className="create-question">
+
+    const content =
+      <div className="create-question__content">
+
         <div className="create-question__form-group">
           <InputField
             value={ this.state.question.title }
@@ -47,11 +56,34 @@ export default class QuestionFormGroup extends React.Component {
           />
         </div>
         <h2 className="create__form-text">Варианты ответов:</h2>
-          {
-            this.props.question.answers.map((answer, index) => (
-              <AnswerFormGroup index={ index } questionIndex={ this.props.index } answer={ answer } key={ `${index}` }/>
-            ))
-          }
+        {
+          this.props.question.answers.map((answer, index) => (
+            <AnswerFormGroup index={ index } questionIndex={ this.props.index } answer={ answer } key={ `${index}` }/>
+          ))
+        }
+
+      </div>
+
+    return (
+      <div className="create-question">
+        <div className="create-question__header">
+          <h3 className="create-question__name">
+            Вопрос №{this.props.index + 1}
+          </h3>
+          <Button
+            onClick={ this.changeOpenState }
+            size="small"
+          >
+            { this.state.isOpen ? 'Свернуть' : 'Развернуть' }
+          </Button>
+        </div>
+
+        <SlideDown>
+
+          { this.state.isOpen ? content : null }
+
+        </SlideDown>
+
       </div>
     )
   }
